@@ -1,0 +1,31 @@
+runtime: php82
+
+env_variables:
+  APP_KEY: base64:fojjASdRoEggpi05GabH9qz9hZQcX9CwPUBYdBS1O+8=
+  APP_STORAGE: /tmp
+  VIEW_COMPILED_PATH: /tmp
+
+  SESSION_DRIVER: database
+  SESSION_LIFETIME: 120
+  SESSION_ENCRYPT: false
+  SESSION_PATH: /
+  SESSION_DOMAIN: unique-magpie-421105.et.r.appspot.com
+
+  DB_CONNECTION: mysql
+  DB_HOST: 127.0.0.1
+  DB_PORT: 3306
+  DB_DATABASE: laraveldb
+  DB_USERNAME: root
+  DB_PASSWORD: rayyana
+  DB_SOCKET: /cloudsql/unique-magpie-421105:us-central1:dbinstance
+
+handlers:
+  - url: /(.+\.(gif|png|jpg|css|js|map|PNG|svg|woff2|woff|TTF|OTF))$
+    static_files: public/\1
+    upload: .+\.(gif|png|jpg|css|js|map|PNG|svg|woff2|woff|TTF|OTF)$
+
+  - url: /.*
+    script: auto
+
+build_env_variables:
+  GOOGLE_COMPOSER_VERSION: 2.2.1
