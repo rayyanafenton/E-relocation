@@ -90,22 +90,38 @@
             padding: 20px 0;
             z-index: 4;
         }
+
+        ::-webkit-scrollbar{
+            height: 10px;
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 2px #BFC7D9;
+            background-color: #BFC7D9;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #164396;
+            border-radius: 10px;
+        }
     </style>
 </head>
 
 <body>
     <!--NAVIGATION BAR-->
-    <nav class="navbar navbar-default navbar-static-top" style="background-color: #164396;">
+    <nav class="navbar navbar-default navbar-static-top" style="background-color: #164396; height: 50px">
         <a class="navbar-brand" href="">
             <img src="/navbar-img.png" style="margin-top: -6%; margin-left: -12px" />
         </a>
     </nav>
 
-    <div class="head">
-        <h2 style="font-weight: bold; margin-top: 40px">Relocation Form</h2>
-    </div>
-
     <div class="container">
+        <div class="head">
+            <h2 style="font-weight: bold; margin-top: 40px">Relocation Form</h2>
+        </div>
+
         <form class="form-horizontal" action="{{ route('store') }}" method="post">
             @csrf
             @if($draftData)
